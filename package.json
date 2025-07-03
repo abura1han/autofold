@@ -54,6 +54,9 @@
 			"optional": true
 		}
 	},
+	"publishConfig": {
+		"access": "public"
+	},
 	"homepage": "https://github.com/abura1han/setro#readme",
 	"bugs": {
 		"url": "https://github.com/abura1han/setro/issues"
