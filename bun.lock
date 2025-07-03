@@ -2,7 +2,7 @@
   "lockfileVersion": 1,
   "workspaces": {
     "": {
-      "name": "setro",
+      "name": "xfold",
       "dependencies": {
         "fs": "^0.0.1-security",
         "path": "^0.12.7",

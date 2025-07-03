@@ -1,21 +1,21 @@
-# Setro
+# xfold
 
-Setro is a lightweight utility for creating directory structures and files from a tree-like string representation. It parses a tree structure and generates corresponding directories and files in the filesystem.
+xfold is a lightweight utility for creating directory structures and files from a tree-like string representation. It parses a tree structure and generates corresponding directories and files in the filesystem.
 
 ## Installation
 
-Install Setro using Bun:
+Install xfold using Bun:
 
 ```bash
-bun install setro
+bun install xfold
 ```
 
 ## Usage
 
-Run Setro with a tree string or a file containing the tree structure:
+Run xfold with a tree string or a file containing the tree structure:
 
 ```bash
-setro <tree-string-or-file>
+xfold <tree-string-or-file>
 ```
 
 ### Example
@@ -34,7 +34,7 @@ project
 Run:
 
 ```bash
-setro ./tree.txt
+xfold ./tree.txt
 ```
 
 This will create:
@@ -47,7 +47,7 @@ This will create:
 Alternatively, provide the tree structure directly:
 
 ```bash
-setro "project\n├── src\n│   └── main.js\n├── config\n│   └── settings.json\n└── README.md"
+xfold "project\n├── src\n│   └── main.js\n├── config\n│   └── settings.json\n└── README.md"
 ```
 
 ### Features
@@ -79,7 +79,7 @@ Creates directories and files based on the provided paths.
 
 ```javascript
 #!/usr/bin/env bun
-import { parseTree, createStructure } from 'setro';
+import { parseTree, createStructure } from 'xfold';
 
 const tree = `
 project

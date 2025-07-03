@@ -5,10 +5,10 @@ import path from 'node:path'
 
 const HELP = `
 Usage:
-  setro <tree-string-or-file>
+  xfold <tree-string-or-file>
 
 Example:
-  setro ./tree.txt
+  xfold ./tree.txt
 `
 
 export function parseTree(tree: string): string[] {
