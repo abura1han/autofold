@@ -10,7 +10,7 @@ export interface FileNode {
 }
 
 // Common file extensions to identify files
-const FILE_EXTENSIONS = [
+const FILE_EXTENSIONS = new Set([
 	'.js',
 	'.ts',
 	'.json',
@@ -44,7 +44,7 @@ const FILE_EXTENSIONS = [
 	'.tsx',
 	'.scss',
 	'.sass',
-]
+])
 
 // Parse tree string into an array of JSON structures
 export function parseTree(input: string): FileNode[] {
@@ -75,7 +75,7 @@ export function parseTree(input: string): FileNode[] {
 		}
 
 		// Determine if it's a file based on common file extensions
-		const isFile = FILE_EXTENSIONS.some((ext) => cleanLine.endsWith(ext))
+		const isFile = hasFileExtension(cleanLine)
 		const node: FileNode = {
 			type: isFile ? 'file' : 'folder',
 			name: cleanLine,
@@ -104,9 +104,7 @@ export function pathsToJson(paths: string[]): FileNode {
 
 		for (let i = 0; i < parts.length; i++) {
 			const part = parts[i]
-			const isFile =
-				i === parts.length - 1 &&
-				FILE_EXTENSIONS.some((ext) => part.endsWith(ext))
+			const isFile = hasFileExtension(part)
 
 			if (!current.children) {
 				current.children = []
@@ -134,6 +132,13 @@ export function pathsToJson(paths: string[]): FileNode {
 
 	root.name = paths[0].split('/')[0]
 	return root
+}
+
+function hasFileExtension(fileName: string): boolean {
+	for (const ext of FILE_EXTENSIONS) {
+		if (fileName.endsWith(ext)) return true
+	}
+	return false
 }
 
 // Create directory/file structure from JSON
