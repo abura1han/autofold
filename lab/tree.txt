@@ -1,0 +1,16 @@
+/highx
+├── packages
+│   ├── core               # HTTP engine, config loader, plugin manager
+│   ├── cli                # CLI tool: `highx start`, `highx reload`
+│   ├── config             # Config schemas, loaders
+│   ├── types              # Shared types
+│   └── modules            # Official modules
+│       ├── proxy
+│       ├── static
+│       ├── tls
+│       ├── logging
+│       └── ...
+├── examples               # Example configurations
+├── tests                  # E2E tests
+├── .bunfig.toml
+└── tsconfig.json

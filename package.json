@@ -55,5 +55,9 @@
 	"bugs": {
 		"url": "https://github.com/abura1han/setro/issues"
 	},
-	"license": "MIT"
+	"license": "MIT",
+	"dependencies": {
+		"fs": "^0.0.1-security",
+		"path": "^0.12.7"
+	}
 }
