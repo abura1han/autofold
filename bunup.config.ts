@@ -2,7 +2,7 @@ import { defineConfig } from 'bunup'
 
 export default defineConfig({
 	entry: ['src/index.ts'],
-	format: ['esm'],
+	format: ['esm', 'cjs'],
 	target: 'bun',
 	minify: true,
 	dts: true,
