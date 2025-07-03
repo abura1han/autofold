@@ -24,10 +24,13 @@ async function main() {
 		input = arg
 	}
 
-	const paths = parseTree(input)
-	const root = paths[0].startsWith('/') ? paths[0].slice(1) : 'output'
+	const nodes = parseTree(input)
+	const rootNode = nodes[0] // Use the first node (root) for creating the structure
+	const rootName = rootNode.name.startsWith('/')
+		? rootNode.name.slice(1)
+		: 'output'
 
-	await createStructure(paths, '.')
+	await createStructure(rootNode, '.')
 }
 
 main().catch((err) => {

@@ -16,27 +16,87 @@ const treeInput = `
 ├── examples
 ├── tests
 ├── .bunfig.toml
+├── main.ts
 └── tsconfig.json
 `
 
-test('should parse tree structure into correct paths', () => {
+test('should parse tree structure into correct JSON array', () => {
 	const result = parseTree(treeInput)
 
 	expect(result).toEqual([
-		'autofold',
-		'autofold/packages',
-		'autofold/packages/core',
-		'autofold/packages/cli',
-		'autofold/packages/config',
-		'autofold/packages/types',
-		'autofold/packages/modules',
-		'autofold/packages/modules/proxy',
-		'autofold/packages/modules/static',
-		'autofold/packages/modules/tls',
-		'autofold/packages/modules/logging',
-		'autofold/examples',
-		'autofold/tests',
-		'autofold/.bunfig.toml',
-		'autofold/tsconfig.json',
+		{
+			type: 'folder',
+			name: 'autofold',
+			children: [
+				{
+					type: 'folder',
+					name: 'packages',
+					children: [
+						{ type: 'folder', name: 'core', children: [] },
+						{ type: 'folder', name: 'cli', children: [] },
+						{ type: 'folder', name: 'config', children: [] },
+						{ type: 'folder', name: 'types', children: [] },
+						{
+							type: 'folder',
+							name: 'modules',
+							children: [
+								{ type: 'folder', name: 'proxy', children: [] },
+								{ type: 'folder', name: 'static', children: [] },
+								{ type: 'folder', name: 'tls', children: [] },
+								{ type: 'folder', name: 'logging', children: [] },
+							],
+						},
+					],
+				},
+				{ type: 'folder', name: 'examples', children: [] },
+				{ type: 'folder', name: 'tests', children: [] },
+				{ type: 'file', name: '.bunfig.toml' },
+				{ type: 'file', name: 'main.ts' },
+				{ type: 'file', name: 'tsconfig.json' },
+			],
+		},
+		{
+			type: 'folder',
+			name: 'packages',
+			children: [
+				{ type: 'folder', name: 'core', children: [] },
+				{ type: 'folder', name: 'cli', children: [] },
+				{ type: 'folder', name: 'config', children: [] },
+				{ type: 'folder', name: 'types', children: [] },
+				{
+					type: 'folder',
+					name: 'modules',
+					children: [
+						{ type: 'folder', name: 'proxy', children: [] },
+						{ type: 'folder', name: 'static', children: [] },
+						{ type: 'folder', name: 'tls', children: [] },
+						{ type: 'folder', name: 'logging', children: [] },
+					],
+				},
+			],
+		},
+		{ type: 'folder', name: 'core', children: [] },
+		{ type: 'folder', name: 'cli', children: [] },
+		{ type: 'folder', name: 'config', children: [] },
+		{ type: 'folder', name: 'types', children: [] },
+		{
+			type: 'folder',
+			name: 'modules',
+			children: [
+				{ type: 'folder', name: 'proxy', children: [] },
+				{ type: 'folder', name: 'static', children: [] },
+				{ type: 'folder', name: 'tls', children: [] },
+				{ type: 'folder', name: 'logging', children: [] },
+			],
+		},
+		{ type: 'folder', name: 'proxy', children: [] },
+		{ type: 'folder', name: 'static', children: [] },
+		{ type: 'folder', name: 'tls', children: [] },
+		{ type: 'folder', name: 'logging', children: [] },
+		{ type: 'folder', name: 'examples', children: [] },
+		{ type: 'folder', name: 'tests', children: [] },
+		{ type: 'file', name: '.bunfig.toml' },
+		{ type: 'file', name: 'main.ts' },
+		{ type: 'file', name: 'tsconfig.json' },
 	])
 })
