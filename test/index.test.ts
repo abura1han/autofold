@@ -1,8 +1,8 @@
 import { expect, test } from 'bun:test'
-import { parseTree } from '../src'
+import { parseTree } from '../src/utils'
 
 const treeInput = `
-/highx
+/autofold
 ├── packages
 │   ├── core
 │   ├── cli
@@ -23,20 +23,20 @@ test('should parse tree structure into correct paths', () => {
 	const result = parseTree(treeInput)
 
 	expect(result).toEqual([
-		'highx',
-		'highx/packages',
-		'highx/packages/core',
-		'highx/packages/cli',
-		'highx/packages/config',
-		'highx/packages/types',
-		'highx/packages/modules',
-		'highx/packages/modules/proxy',
-		'highx/packages/modules/static',
-		'highx/packages/modules/tls',
-		'highx/packages/modules/logging',
-		'highx/examples',
-		'highx/tests',
-		'highx/.bunfig.toml',
-		'highx/tsconfig.json',
+		'autofold',
+		'autofold/packages',
+		'autofold/packages/core',
+		'autofold/packages/cli',
+		'autofold/packages/config',
+		'autofold/packages/types',
+		'autofold/packages/modules',
+		'autofold/packages/modules/proxy',
+		'autofold/packages/modules/static',
+		'autofold/packages/modules/tls',
+		'autofold/packages/modules/logging',
+		'autofold/examples',
+		'autofold/tests',
+		'autofold/.bunfig.toml',
+		'autofold/tsconfig.json',
 	])
 })

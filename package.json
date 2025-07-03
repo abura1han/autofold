@@ -8,7 +8,7 @@
 	"module": "./dist/index.js",
 	"types": "./dist/index.d.ts",
 	"bin": {
-		"autofold": "./dist/index.js"
+		"autofold": "./dist/cli.js"
 	},
 	"exports": {
 		".": {
