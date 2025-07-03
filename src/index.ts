@@ -1,7 +1,7 @@
 #!/usr/bin/env bun
-import { mkdir, writeFile } from 'fs/promises';
-import { existsSync } from 'fs';
-import path from 'path';
+import { existsSync } from 'node:fs'
+import { mkdir, writeFile } from 'node:fs/promises'
+import path from 'node:path'
 
 const HELP = `
 Usage:
@@ -9,76 +9,76 @@ Usage:
 
 Example:
   setro ./tree.txt
-`;
+`
 
 export function parseTree(tree: string): string[] {
 	const lines = tree
 		.split('\n')
 		.map((line) => line.trimEnd()) // remove only end
-		.filter((line) => line && !line.includes('...'));
+		.filter((line) => line && !line.includes('...'))
 
-	const stack: string[] = [];
-	const paths: string[] = [];
+	const stack: string[] = []
+	const paths: string[] = []
 
-	for (let line of lines) {
-		const indentPart = (line.match(/^[├│└─ ]+/) || [''])[0];
-		const level = Math.floor(indentPart.replace(/[^ ]/g, '').length / 2);
+	for (const line of lines) {
+		const indentPart = (line.match(/^[├│└─ ]+/) || [''])[0]
+		const level = Math.floor(indentPart.replace(/[^ ]/g, '').length / 2)
 
 		const cleanLine = line
 			.replace(/^[├│└─ ]+/, '')
 			.split('#')[0]
-			.trim();
-		if (!cleanLine) continue;
+			.trim()
+		if (!cleanLine) continue
 
-		stack.splice(level); // safely truncate to the correct level
-		stack.push(cleanLine);
+		stack.splice(level) // safely truncate to the correct level
+		stack.push(cleanLine)
 
-		const fullPath = path.join(...stack);
-		paths.push(fullPath);
+		const fullPath = path.join(...stack)
+		paths.push(fullPath)
 	}
 
-	return paths;
+	return paths
 }
 
 export async function createStructure(
 	paths: string[],
-	base: string = '.'
+	base: string = String('.'),
 ): Promise<void> {
 	for (const p of paths) {
-		const fullPath = path.join(base, p);
+		const fullPath = path.join(base, p)
 		if (p.endsWith('.json') || p.endsWith('.toml')) {
-			await writeFile(fullPath, '', 'utf8');
-			console.log(`📝 Created file: ${fullPath}`);
+			await writeFile(fullPath, '', 'utf8')
+			console.log(`📝 Created file: ${fullPath}`)
 		} else {
 			if (!existsSync(fullPath)) {
-				await mkdir(fullPath, { recursive: true });
-				console.log(`📁 Created directory: ${fullPath}`);
+				await mkdir(fullPath, { recursive: true })
+				console.log(`📁 Created directory: ${fullPath}`)
 			}
 		}
 	}
 }
 
 async function main() {
-	const arg = Bun.argv[2];
+	const arg = Bun.argv[2]
 	if (!arg || arg === '--help') {
-		console.log(HELP);
-		process.exit(0);
+		console.log(HELP)
+		process.exit(0)
 	}
 
-	let input = '';
+	let input = ''
 	if (existsSync(arg)) {
-		input = await Bun.file(arg).text();
+		input = await Bun.file(arg).text()
 	} else {
-		input = arg;
+		input = arg
 	}
 
-	const paths = parseTree(input);
-	const root = paths[0].startsWith('/') ? paths[0].slice(1) : 'output';
+	const paths = parseTree(input)
+	const root = paths[0].startsWith('/') ? paths[0].slice(1) : 'output'
 
-	await createStructure(paths, '.');
+	await createStructure(paths, '.')
 }
 
 main().catch((err) => {
-	console.error('❌ Error:', err);
-	process.exit(1);
-});
+	console.error('❌ Error:', err)
+	process.exit(1)
+})
