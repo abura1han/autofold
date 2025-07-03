@@ -1,6 +1,6 @@
 {
 	"name": "xfold",
-	"version": "0.5.0",
+	"version": "0.5.1",
 	"description": "A typescript library",
 	"type": "module",
 	"files": ["dist"],
