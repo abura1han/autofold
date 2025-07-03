@@ -59,5 +59,22 @@
 	"dependencies": {
 		"fs": "^0.0.1-security",
 		"path": "^0.12.7"
-	}
+	},
+	"keywords": [
+		"file-system",
+		"directory-structure",
+		"tree-parser",
+		"file-creation",
+		"javascript",
+		"bun",
+		"node.js",
+		"cli-tool",
+		"automation",
+		"project-scaffolding",
+		"json",
+		"toml",
+		"mit-license",
+		"developer-tools",
+		"structure-generator"
+	]
 }
