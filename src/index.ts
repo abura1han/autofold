@@ -5,10 +5,10 @@ import path from 'node:path'
 
 const HELP = `
 Usage:
-  xfold <tree-string-or-file>
+  autofold <tree-string-or-file>
 
 Example:
-  xfold ./tree.txt
+  autofold ./tree.txt
 `
 
 export function parseTree(tree: string): string[] {

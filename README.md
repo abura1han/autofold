@@ -1,21 +1,21 @@
-# xfold
+# autofold
 
-xfold is a lightweight utility for creating directory structures and files from a tree-like string representation. It parses a tree structure and generates corresponding directories and files in the filesystem.
+autofold is a lightweight utility for creating directory structures and files from a tree-like string representation. It parses a tree structure and generates corresponding directories and files in the filesystem.
 
 ## Installation
 
-Install xfold using Bun:
+Install autofold using Bun:
 
 ```bash
-bun install xfold
+bun install autofold
 ```
 
 ## Usage
 
-Run xfold with a tree string or a file containing the tree structure:
+Run autofold with a tree string or a file containing the tree structure:
 
 ```bash
-xfold <tree-string-or-file>
+autofold <tree-string-or-file>
 ```
 
 ### Example
@@ -34,7 +34,7 @@ project
 Run:
 
 ```bash
-xfold ./tree.txt
+autofold ./tree.txt
 ```
 
 This will create:
@@ -47,7 +47,7 @@ This will create:
 Alternatively, provide the tree structure directly:
 
 ```bash
-xfold "project\n├── src\n│   └── main.js\n├── config\n│   └── settings.json\n└── README.md"
+autofold "project\n├── src\n│   └── main.js\n├── config\n│   └── settings.json\n└── README.md"
 ```
 
 ### Features
@@ -79,7 +79,7 @@ Creates directories and files based on the provided paths.
 
 ```javascript
 #!/usr/bin/env bun
-import { parseTree, createStructure } from 'xfold';
+import { parseTree, createStructure } from 'autofold';
 
 const tree = `
 project

@@ -2,7 +2,7 @@
   "lockfileVersion": 1,
   "workspaces": {
     "": {
-      "name": "xfold",
+      "name": "autofold",
       "dependencies": {
         "fs": "^0.0.1-security",
         "path": "^0.12.7",

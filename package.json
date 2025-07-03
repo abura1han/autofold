@@ -1,14 +1,14 @@
 {
-	"name": "xfold",
+	"name": "autofold",
 	"version": "0.5.1",
-	"description": "A typescript library",
+	"description": "A lightweight utility for creating directory structures and files from a tree-like string representation.",
 	"type": "module",
 	"files": ["dist"],
 	"main": "./dist/index.cjs",
 	"module": "./dist/index.js",
 	"types": "./dist/index.d.ts",
 	"bin": {
-		"xfold": "./dist/index.js"
+		"autofold": "./dist/index.js"
 	},
 	"exports": {
 		".": {
@@ -44,7 +44,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/abura1han/xfold.git"
+		"url": "git+https://github.com/abura1han/autofold.git"
 	},
 	"peerDependencies": {
 		"typescript": ">=4.5.0"
@@ -57,9 +57,9 @@
 	"publishConfig": {
 		"access": "public"
 	},
-	"homepage": "https://github.com/abura1han/xfold#readme",
+	"homepage": "https://github.com/abura1han/autofold#readme",
 	"bugs": {
-		"url": "https://github.com/abura1han/xfold/issues"
+		"url": "https://github.com/abura1han/autofold/issues"
 	},
 	"license": "MIT",
 	"dependencies": {
