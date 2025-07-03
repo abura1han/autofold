@@ -28,7 +28,7 @@
 		"test": "bun test",
 		"test:watch": "bun test --watch",
 		"test:coverage": "bun test --coverage",
-		"release": "bumpp --commit --push --tag",
+		"release": "bumpp --commit --push --tag --access public",
 		"publish:ci": "bun publish --access public --no-git-checks",
 		"prepare": "husky"
 	},
