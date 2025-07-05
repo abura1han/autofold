@@ -1,6 +1,6 @@
 {
 	"name": "autofold",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "A lightweight utility for creating directory structures and files from a tree-like string representation.",
 	"type": "module",
 	"files": ["dist"],
