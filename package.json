@@ -57,7 +57,7 @@
 	"publishConfig": {
 		"access": "public"
 	},
-	"homepage": "https://github.com/abura1han/autofold#readme",
+	"homepage": "https://autofold.vercel.app",
 	"bugs": {
 		"url": "https://github.com/abura1han/autofold/issues"
 	},
